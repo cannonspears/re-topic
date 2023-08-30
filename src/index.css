@@ -57,3 +57,23 @@ blockquote {
   white-space: nowrap;
   transform: translate(-25%, 50%);
 }
+
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: var(--primary);
+  color: var(--light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 3rem;
+  margin-top: 64px;
+  margin-bottom: 64px;
+  transition: 0.4s;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary);
+}

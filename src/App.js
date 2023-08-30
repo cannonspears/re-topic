@@ -4,6 +4,7 @@ function App() {
   return (
     <div className="App">
       <RealEstate />
+      <button>Generate New Topic</button>
     </div>
   );
 }
