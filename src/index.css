@@ -1,0 +1,49 @@
+:root {
+  --primary: #a84fff;
+  --secondary: #d8135b;
+  --dark: #131a26;
+  --light: #eee;
+  --grey: #888;
+
+  --font: "Fira Sans", sans-serif;
+  --font-quote: "Fira Code", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+body {
+  background-color: var(--light);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.topic {
+  position: relative;
+}
+
+.category {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--secondary);
+  color: var(--light);
+  border-radius: 1.5rem;
+  font-weight: 400;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  max-width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transform: translate(-25%, 50%);
+}
