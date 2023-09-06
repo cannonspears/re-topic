@@ -5,9 +5,17 @@ function App() {
   const [topic, setTopic] = useState("");
 
   const fetchTopic = async () => {
-    const response = await fetch("https://topicsgeneratorapi.onrender.com/real-estate");
-    const data = await response.json();
-    return data.topic;
+    try {
+      const response = await fetch("http://localhost:5000/real-estate");
+      if (!response.ok) {
+        throw new Error(`Request failed with status: ${response.status}`);
+      }
+      const { data } = await response.json();
+      return data.topic;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return null;
+    }
   };
 
   useEffect(() => {
