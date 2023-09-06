@@ -2,18 +2,21 @@ import React, { useState, useEffect } from "react";
 import RealEstate from "./topics/RealEstate";
 
 function App() {
-  const [topic, setTopic] = useState({
-    topic: null,
-  });
+  const [topic, setTopic] = useState("");
 
   const fetchTopic = async () => {
-    return await fetch("https://topicsgenerator.onrender.com/real-estate").then((response) => {
-      response.json();
-    });
+    const response = await fetch("https://topicsgeneratorapi.onrender.com/real-estate");
+    const data = await response.json();
+    return data.topic;
   };
 
-  useEffect(async () => {
-    setTopic(await fetchTopic());
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchTopic();
+      setTopic(data);
+    };
+
+    fetchData();
   }, []);
 
   return (
