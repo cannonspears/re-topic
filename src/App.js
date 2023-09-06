@@ -27,10 +27,19 @@ function App() {
     fetchData();
   }, []);
 
+  const generate = async () => {
+    const fetchData = async () => {
+      const data = await fetchTopic();
+      setTopic(data);
+    };
+
+    fetchData();
+  };
+
   return (
     <div className="App">
       <RealEstate topic={topic} />
-      <button>Generate New Topic</button>
+      <button onClick={generate}>Generate New Topic</button>
     </div>
   );
 }
