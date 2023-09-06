@@ -38,7 +38,12 @@ function App() {
 
   return (
     <div className="App">
-      <RealEstate topic={topic} />
+      <div className="topic">
+        <div className="category" title="Real Estate">
+          Real Estate
+        </div>
+        <RealEstate topic={topic} />
+      </div>
       <button onClick={generate}>Generate New Topic</button>
     </div>
   );

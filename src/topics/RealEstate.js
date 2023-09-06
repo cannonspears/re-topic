@@ -1,15 +1,7 @@
 import React from "react";
 
 function RealEstate({ topic }) {
-  return (
-    <div className="topic">
-      <div className="category" title="Real Estate">
-        Real Estate
-      </div>
-
-      <blockquote>{topic}</blockquote>
-    </div>
-  );
+  return <blockquote>{topic}</blockquote>;
 }
 
 export default RealEstate;
