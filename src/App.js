@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <Topic topic={topic} />
+      <Topic category="Real Estate" topic={topic} />
       <button className="generate" onClick={generate}>
         Generate New Topic
       </button>

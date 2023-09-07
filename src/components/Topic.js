@@ -1,10 +1,10 @@
 import React from "react";
 
-function Topic({ topic }) {
+function Topic({ category, topic }) {
   return (
     <div className="topic">
-      <div className="category" title="Real Estate">
-        Real Estate
+      <div className="category" title={category}>
+        {category}
       </div>
       <blockquote>{topic}</blockquote>
       <button className="next" title="Next Category">
