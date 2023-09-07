@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import RealEstate from "./topics/RealEstate";
+import Topic from "./components/Topic";
 
 function App() {
   const [topic, setTopic] = useState("");
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <RealEstate topic={topic} />
+      <Topic topic={topic} />
       <button className="generate" onClick={generate}>
         Generate New Topic
       </button>

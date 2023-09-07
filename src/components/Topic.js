@@ -1,6 +1,6 @@
 import React from "react";
 
-function RealEstate({ topic }) {
+function Topic({ topic }) {
   return (
     <div className="topic">
       <div className="category" title="Real Estate">
@@ -14,4 +14,4 @@ function RealEstate({ topic }) {
   );
 }
 
-export default RealEstate;
+export default Topic;
