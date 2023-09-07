@@ -43,7 +43,7 @@ blockquote {
 }
 
 .category,
-.next {
+.script {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   color: var(--light);
@@ -57,12 +57,17 @@ blockquote {
 }
 
 .category {
+  appearance: none;
+  border: none;
+  outline: none;
   background-color: var(--secondary);
   font-weight: 400;
   transform: translate(-25%, 50%);
+  transition: 0.4s;
+  cursor: pointer;
 }
 
-.next {
+.script {
   appearance: none;
   border: none;
   outline: none;
@@ -94,4 +99,25 @@ blockquote {
 
 button:hover {
   background-color: var(--secondary);
+}
+
+.category:hover {
+  background-color: var(--primary);
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  blockquote {
+    font-size: 1.5rem;
+  }
+
+  .category,
+  .script {
+    font-size: 1.2rem;
+  }
+
+  .generate {
+    font-size: 1.2rem;
+  }
 }
