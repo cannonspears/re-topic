@@ -2,12 +2,29 @@ import React, { useState, useEffect } from "react";
 import Topic from "./components/Topic";
 
 function App() {
+  const validCategories = [
+    {
+      name: "Real Estate",
+      endpoint: "real-estate",
+    },
+    {
+      name: "Mortgage",
+      endpoint: "mortgage",
+    },
+    {
+      name: "Productivity",
+      endpoint: "productivity",
+    },
+  ];
+
   const [topic, setTopic] = useState("Loading...");
-  const [category, setCategory] = useState("real-estate");
+  const [category, setCategory] = useState(validCategories[0].name);
 
   const fetchTopic = async () => {
     try {
-      const response = await fetch(`https://topicsgeneratorapi.onrender.com/${category}`);
+      const response = await fetch(
+        `https://topicsgeneratorapi.onrender.com/${validCategories[0].endpoint}`
+      );
       if (!response.ok) {
         throw new Error(`Request failed with status: ${response.status}`);
       }
@@ -26,7 +43,7 @@ function App() {
     };
 
     fetchData();
-  }, []);
+  }, [category]);
 
   const generate = async () => {
     const fetchData = async () => {
