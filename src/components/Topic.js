@@ -1,6 +1,6 @@
 import React from "react";
 
-function Topic({ category, topic, script }) {
+function Topic({ topic, script }) {
   // TODO: Functional Script button
   // Need: Grey out and make not clickable if no script available in fetched data
   // Binary state variable to show/hide script if available

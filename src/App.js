@@ -4,13 +4,14 @@ import validCategories from "./utils/validCategories";
 
 function App() {
   const [topic, setTopic] = useState("Loading...");
-  const [category, setCategory] = useState(validCategories[1].name);
+  const [categoryInd, setCategoryInd] = useState(0);
+
+  const category = validCategories[categoryInd];
 
   const fetchTopic = async () => {
     try {
-      const response = await fetch(
-        `https://topicsgeneratorapi.onrender.com/${validCategories[1].endpoint}`
-      );
+      const response = await fetch(`https://topicsgeneratorapi.onrender.com/${category.endpoint}`);
+
       if (!response.ok) {
         throw new Error(`Request failed with status: ${response.status}`);
       }
@@ -22,6 +23,12 @@ function App() {
     }
   };
 
+  const categoryHandler = () => {
+    setCategoryInd((currentInd) =>
+      currentInd !== validCategories.length - 1 ? currentInd + 1 : 0
+    );
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchTopic();
@@ -29,7 +36,7 @@ function App() {
     };
 
     fetchData();
-  }, [category]);
+  }, [categoryInd]);
 
   const generate = async () => {
     const fetchData = async () => {
@@ -44,11 +51,11 @@ function App() {
     <div className="App">
       <div className="topic">
         <div className="container">
-          <button className="category" title={category}>
-            {category}
+          <button onClick={categoryHandler} className="category" title={category.name}>
+            {category.name}
           </button>
         </div>
-        <Topic category="Real Estate" topic={topic} />
+        <Topic topic={topic} />
       </div>
       <button className="generate" onClick={generate}>
         Generate New Topic
