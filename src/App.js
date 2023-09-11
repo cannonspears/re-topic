@@ -1,29 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Topic from "./components/Topic";
+import validCategories from "./utils/validCategories";
 
 function App() {
-  const validCategories = [
-    {
-      name: "Real Estate",
-      endpoint: "real-estate",
-    },
-    {
-      name: "Mortgage",
-      endpoint: "mortgage",
-    },
-    {
-      name: "Productivity",
-      endpoint: "productivity",
-    },
-  ];
-
   const [topic, setTopic] = useState("Loading...");
-  const [category, setCategory] = useState(validCategories[0].name);
+  const [category, setCategory] = useState(validCategories[1].name);
 
   const fetchTopic = async () => {
     try {
       const response = await fetch(
-        `https://topicsgeneratorapi.onrender.com/${validCategories[0].endpoint}`
+        `https://topicsgeneratorapi.onrender.com/${validCategories[1].endpoint}`
       );
       if (!response.ok) {
         throw new Error(`Request failed with status: ${response.status}`);
