@@ -1,6 +1,4 @@
 import React from "react";
-import { IconContext } from "react-icons";
-import { HiArrowRight } from "react-icons/hi";
 
 function Topic({ category, topic, script }) {
   // TODO: Functional Script button
@@ -9,22 +7,14 @@ function Topic({ category, topic, script }) {
   // Change button and title text to "Show" or "Hide"
 
   return (
-    <div className="topic">
-      <div className="container">
-        <button className="category" title={category}>
-          {category}
-          <IconContext.Provider value={{ style: { verticalAlign: "middle", marginLeft: 10 } }}>
-            <HiArrowRight />
-          </IconContext.Provider>
-        </button>
-      </div>
+    <React.Fragment>
       <blockquote>{topic}</blockquote>
       <div className="container">
         <button className="script" title="Show Script">
           Show Script
         </button>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 
