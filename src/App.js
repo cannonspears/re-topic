@@ -5,10 +5,11 @@ import validCategories from "./utils/validCategories";
 function App() {
   const [topic, setTopic] = useState("Loading...");
   const [categoryInd, setCategoryInd] = useState(0);
+  const [topicList, setTopicList] = useState([]);
 
   const category = validCategories[categoryInd];
 
-  const fetchTopic = async () => {
+  const fetchCategory = async () => {
     try {
       const response = await fetch(`https://topicsgeneratorapi.onrender.com/${category.endpoint}`);
 
@@ -16,7 +17,7 @@ function App() {
         throw new Error(`Request failed with status: ${response.status}`);
       }
       const { data } = await response.json();
-      return data.topic;
+      return data;
     } catch (error) {
       console.error("Error fetching data:", error);
       return null;
@@ -31,20 +32,22 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchTopic();
-      setTopic(data);
+      const data = await fetchCategory();
+      if (data && data.length > 0) {
+        setTopicList(data);
+        const randomIndex = Math.floor(Math.random() * data.length);
+        setTopic(data[randomIndex].topic);
+      }
     };
 
     fetchData();
   }, [categoryInd]);
 
   const generate = async () => {
-    const fetchData = async () => {
-      const data = await fetchTopic();
-      setTopic(data);
-    };
-
-    fetchData();
+    if (topicList && topicList.length > 0) {
+      const randomIndex = Math.floor(Math.random() * topicList.length);
+      setTopic(topicList[randomIndex].topic);
+    }
   };
 
   return (
