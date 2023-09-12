@@ -9,6 +9,7 @@ const DEFAULT_LOADING_TEXT = "Loading...";
 function App() {
   const [state, setState] = useState({
     topic: DEFAULT_LOADING_TEXT,
+    script: "",
     categoryInd: 0,
     topicList: [],
   });
@@ -31,6 +32,18 @@ function App() {
     }
   };
 
+  const updateTopicList = (data) => {
+    if (data && data.length > 0) {
+      const currentTopic = data[Math.floor(Math.random() * data.length)];
+      setState((prevState) => ({
+        ...prevState,
+        topicList: data,
+        topic: currentTopic.topic,
+        script: currentTopic.script,
+      }));
+    }
+  };
+
   const nextCategoryHandler = useCallback(() => {
     setState((prevState) => ({
       ...prevState,
@@ -42,29 +55,19 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchCategory();
-      if (data && data.length > 0) {
-        const currentTopic = data[Math.floor(Math.random() * data.length)];
-        const script = currentTopic.script;
-        setState((prevState) => ({
-          ...prevState,
-          topicList: data,
-          topic: currentTopic.topic,
-          script: script,
-        }));
-      }
+      updateTopicList(data);
     };
 
     fetchData();
   }, [categoryInd]);
 
   const randomTopicHandler = () => {
-    const currentTopic = topicList[Math.floor(Math.random() * topicList.length)];
-    const script = currentTopic.script;
-    if (topicList && topicList.length > 0) {
+    if (topicList.length > 0) {
+      const currentTopic = topicList[Math.floor(Math.random() * topicList.length)];
       setState((prevState) => ({
         ...prevState,
         topic: currentTopic.topic,
-        script: script,
+        script: currentTopic.script,
       }));
     }
   };
