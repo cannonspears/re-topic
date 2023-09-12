@@ -13,7 +13,7 @@ function App() {
     topicList: [],
   });
 
-  const { topic, categoryInd, topicList } = state;
+  const { topic, script, categoryInd, topicList } = state;
 
   const fetchCategory = async () => {
     try {
@@ -43,10 +43,13 @@ function App() {
     const fetchData = async () => {
       const data = await fetchCategory();
       if (data && data.length > 0) {
+        const currentTopic = data[Math.floor(Math.random() * data.length)];
+        const script = currentTopic.script;
         setState((prevState) => ({
           ...prevState,
           topicList: data,
-          topic: data[Math.floor(Math.random() * data.length)].topic,
+          topic: currentTopic.topic,
+          script: script,
         }));
       }
     };
@@ -55,10 +58,13 @@ function App() {
   }, [categoryInd]);
 
   const randomTopicHandler = () => {
+    const currentTopic = topicList[Math.floor(Math.random() * topicList.length)];
+    const script = currentTopic.script;
     if (topicList && topicList.length > 0) {
       setState((prevState) => ({
         ...prevState,
-        topic: topicList[Math.floor(Math.random() * topicList.length)].topic,
+        topic: currentTopic.topic,
+        script: script,
       }));
     }
   };
@@ -69,7 +75,7 @@ function App() {
     <div className="App">
       <div className="topic">
         <CategoryButton onClick={nextCategoryHandler} title={category.name} />
-        <Topic topic={topic} />
+        <Topic topic={topic} script={script} />
       </div>
       <NewTopicButton onClick={randomTopicHandler} />
     </div>
