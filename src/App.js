@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import Topic from "./components/Topic";
 import validCategories from "./utils/validCategories";
 import CategoryButton from "./components/CategoryButton";
+import NewTopicButton from "./components/NewTopicButton";
 
 const API_URL = "https://topicsgeneratorapi.onrender.com/";
 
@@ -32,7 +33,7 @@ function App() {
     }
   };
 
-  const categoryHandler = useCallback(() => {
+  const nextCategoryHandler = useCallback(() => {
     setState((prevState) => ({
       ...prevState,
       categoryInd:
@@ -55,7 +56,7 @@ function App() {
     fetchData();
   }, [categoryInd]);
 
-  const generate = () => {
+  const randomTopicHandler = () => {
     if (topicList && topicList.length > 0) {
       setState((prevState) => ({
         ...prevState,
@@ -69,12 +70,10 @@ function App() {
   return (
     <div className="App">
       <div className="topic">
-        <CategoryButton onClick={categoryHandler} title={category.name} />
+        <CategoryButton onClick={nextCategoryHandler} title={category.name} />
         <Topic topic={topic} />
       </div>
-      <button className="generate" onClick={generate}>
-        Generate New Topic
-      </button>
+      <NewTopicButton onClick={randomTopicHandler} />
     </div>
   );
 }
