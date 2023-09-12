@@ -9,11 +9,8 @@ function Topic({ topic, script }) {
   const showScriptHandler = () => {
     setShowScript(!showScript);
   };
-  let buttonText = showScript ? "Hide" : "Show";
 
-  if (showScript) {
-    buttonText = "Hide";
-  }
+  let buttonText = showScript ? "Hide" : "Show";
 
   return (
     <React.Fragment>
