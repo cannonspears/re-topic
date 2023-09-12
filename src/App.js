@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-import Topic from "./components/Topic";
 import validCategories from "./utils/validCategories";
-import CategoryButton from "./components/CategoryButton";
-import NewTopicButton from "./components/NewTopicButton";
+import { Topic, CategoryButton, NewTopicButton } from "./components";
 
 const API_URL = "https://topicsgeneratorapi.onrender.com/";
 
