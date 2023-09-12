@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Script from "./Script";
 
 function Topic({ topic, script }) {
   // TODO: Functional Script button
@@ -6,12 +7,27 @@ function Topic({ topic, script }) {
   // Binary state variable to show/hide script if available
   // Change button and title text to "Show" or "Hide"
 
+  const [showScript, setShowScript] = useState(false);
+
+  const showScriptHandler = () => {
+    setShowScript(!showScript);
+  };
+  let buttonText = showScript ? "Hide" : "Show";
+
+  if (showScript) {
+    buttonText = "Hide";
+  }
+
   return (
     <React.Fragment>
-      <blockquote>{topic}</blockquote>
+      <blockquote>
+        {topic}
+        {showScript && <Script script={script} />}
+      </blockquote>
+
       <div className="container">
-        <button className="script" title="Show Script">
-          Show Script
+        <button onClick={showScriptHandler} className="scriptButton" title={`${buttonText} Script`}>
+          {buttonText} Script
         </button>
       </div>
     </React.Fragment>
