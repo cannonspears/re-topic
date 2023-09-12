@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Topic from "./components/Topic";
 import validCategories from "./utils/validCategories";
+import CategoryButton from "./components/CategoryButton";
 
 const API_URL = "https://topicsgeneratorapi.onrender.com/";
 
@@ -68,11 +69,7 @@ function App() {
   return (
     <div className="App">
       <div className="topic">
-        <div className="container">
-          <button onClick={categoryHandler} className="category" title={category.name}>
-            {category.name}
-          </button>
-        </div>
+        <CategoryButton onClick={categoryHandler} title={category.name} />
         <Topic topic={topic} />
       </div>
       <button className="generate" onClick={generate}>
