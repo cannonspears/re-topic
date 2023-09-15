@@ -81,7 +81,7 @@ blockquote {
   cursor: pointer;
 }
 
-.generateButton {
+.NewTopicButton {
   appearance: none;
   border: none;
   outline: none;
@@ -120,7 +120,7 @@ button:hover {
     font-size: 1.2rem;
   }
 
-  .generateButton {
+  .NewTopicButton {
     font-size: 1.2rem;
   }
 }
