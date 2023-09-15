@@ -33,8 +33,10 @@ body {
 }
 
 blockquote {
+  margin: auto;
   font-family: var(--font-quote);
-  max-width: 720px;
+  max-width: 70%;
+  /* max-width: 720px; */
   font-size: 2rem;
   background-color: var(--dark);
   padding: 3rem;
@@ -112,7 +114,8 @@ button:hover {
 
 @media (max-width: 768px) {
   blockquote {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    padding: 2rem 1rem 1rem 1rem;
   }
 
   .categoryButton,
@@ -122,5 +125,10 @@ button:hover {
 
   .NewTopicButton {
     font-size: 1.2rem;
+  }
+
+  .script p {
+    font-size: 0.8rem;
+    padding-top: 10px;
   }
 }
