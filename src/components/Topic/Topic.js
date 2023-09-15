@@ -15,7 +15,7 @@ function Topic({ topic, script }) {
   return (
     <React.Fragment>
       <blockquote>
-        {topic}
+        <h1>{topic}</h1>
         {showScript && <Script script={script} />}
       </blockquote>
 

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
 :root {
   --primary: #a84fff;
   --secondary: #d8135b;
@@ -5,8 +7,8 @@
   --light: #eee;
   --grey: #888;
 
-  --font: "Fira Sans", sans-serif;
-  --font-quote: "Fira Code", monospace;
+  --font: "Montserrat", sans-serif;
+  --font-quote: "Montserrat", monospace;
 }
 
 * {
@@ -15,24 +17,6 @@
   box-sizing: border-box;
   font-family: var(--font);
 }
-
-/* @keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-body {
-  animation: gradientAnimation 10s linear infinite;
-  background: linear-gradient(45deg, #f9a3a4, #f8c291, var(--secondary));
-  background-size: 200% 200%;
-} */
 
 body {
   background-color: #131a26;
@@ -79,13 +63,22 @@ body::before {
 blockquote {
   margin: auto;
   font-family: var(--font-quote);
-  /* max-width: 70%; */
-  max-width: 720px;
-  font-size: 2rem;
+  max-width: 70%;
+  /* max-width: 720px; */
   background-color: var(--dark);
   padding: 3rem;
   border-radius: 1.5rem;
   color: var(--light);
+}
+
+blockquote h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+blockquote p {
+  font-size: 1.5rem;
+  padding-top: 5%;
 }
 
 .categoryButton,
@@ -152,15 +145,20 @@ button:hover {
   background-color: var(--primary);
 }
 
-.script p {
-  font-size: 1.5rem;
-  padding-top: 10px;
-}
-
 @media (max-width: 768px) {
   blockquote {
+    padding: 0;
+  }
+
+  blockquote h1 {
+    margin: auto;
+    font-size: 1.5rem;
+    padding: 1.5rem 1.5rem;
+  }
+
+  blockquote p {
     font-size: 1rem;
-    padding: 2rem 1rem 1rem 1rem;
+    /* padding: 2rem 1rem 1rem 1rem; */
   }
 
   .categoryButton,
