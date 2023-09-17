@@ -19,33 +19,8 @@
 }
 
 body {
-  background-color: #131a26;
-  overflow: hidden;
+  background-color: var(--light);
   position: relative;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, #f9a3a4, #f8c291, #6e4e8f);
-  background-size: 200% 200%;
-  animation: gradientAnimation 30s ease-in-out infinite;
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
 }
 
 .App {
@@ -58,13 +33,13 @@ body::before {
 
 .topic {
   position: relative;
+  max-width: 80%;
 }
 
 blockquote {
   margin: auto;
   font-family: var(--font-quote);
-  max-width: 70%;
-  /* max-width: 720px; */
+  width: 70%;
   background-color: var(--dark);
   padding: 3rem;
   border-radius: 1.5rem;
@@ -83,7 +58,6 @@ blockquote p {
 
 .categoryButton,
 .scriptButton {
-  display: inline-block;
   padding: 0.75rem 1.5rem;
   color: var(--light);
   border-radius: 1.5rem;
@@ -96,12 +70,13 @@ blockquote p {
 }
 
 .categoryButton {
+  align-items: flex-start;
   appearance: none;
   border: none;
   outline: none;
   background-color: var(--secondary);
   font-weight: 400;
-  transform: translate(-25%, 50%);
+  transform: translate(25%, 50%);
   transition: 0.4s;
   cursor: pointer;
 }
@@ -112,16 +87,16 @@ blockquote p {
   outline: none;
   background-color: var(--primary);
   font-weight: 700;
-  transform: translate(25%, 50%);
+  transform: translate(-25%, 50%);
   position: absolute;
   right: 0;
   bottom: 0;
   transition: 0.4s;
   cursor: pointer;
+  justify-content: right;
 }
 
 .NewTopicButton {
-  z-index: 1;
   appearance: none;
   border: none;
   outline: none;
@@ -129,8 +104,7 @@ blockquote p {
   color: var(--light);
   padding: 0.75rem 1.5rem;
   border-radius: 3rem;
-  margin-top: 64px;
-  margin-bottom: 64px;
+  margin: 64px auto;
   transition: 0.4s;
   font-size: 1.5rem;
   font-weight: 700;
@@ -147,31 +121,29 @@ button:hover {
 
 @media (max-width: 768px) {
   blockquote {
-    padding: 0;
+    padding: 10px 0px;
+    width: 100%;
   }
 
   blockquote h1 {
     margin: auto;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 1.5rem 1.5rem;
   }
 
   blockquote p {
-    font-size: 1rem;
-    /* padding: 2rem 1rem 1rem 1rem; */
+    font-size: 0.8rem;
+    padding: 10px;
   }
 
   .categoryButton,
   .scriptButton {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    max-width: 80%;
   }
 
   .NewTopicButton {
-    font-size: 1.2rem;
-  }
-
-  .script p {
-    font-size: 0.8rem;
-    padding-top: 10px;
+    max-width: 80%;
+    font-size: 1rem;
   }
 }

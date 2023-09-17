@@ -19,11 +19,9 @@ function Topic({ topic, script }) {
         {showScript && <Script script={script} />}
       </blockquote>
 
-      <div className="container">
-        <button onClick={showScriptHandler} className="scriptButton" title={`${buttonText} Script`}>
-          {buttonText} Script
-        </button>
-      </div>
+      <button onClick={showScriptHandler} className="scriptButton" title={`${buttonText} Script`}>
+        {buttonText} Script
+      </button>
     </React.Fragment>
   );
 }
