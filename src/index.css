@@ -33,7 +33,7 @@ body {
 
 .topic {
   position: relative;
-  max-width: 80%;
+  max-width: 90%;
 }
 
 blockquote {
@@ -127,19 +127,30 @@ button:hover {
 
   blockquote h1 {
     margin: auto;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 1.5rem 1.5rem;
   }
 
   blockquote p {
     font-size: 0.8rem;
-    padding: 10px;
+    padding: 0.5rem 1.5rem;
+  }
+  blockquote p:last-child {
+    padding-bottom: 1.5rem;
   }
 
   .categoryButton,
   .scriptButton {
     font-size: 1rem;
     max-width: 80%;
+  }
+
+  .categoryButton {
+    transform: translate(0%, 50%);
+  }
+
+  .scriptButton {
+    transform: translate(0%, 50%);
   }
 
   .NewTopicButton {
