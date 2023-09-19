@@ -41,13 +41,12 @@ blockquote {
   font-family: var(--font-quote);
   width: 70%;
   background-color: var(--dark);
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 1.5rem;
   color: var(--light);
 }
 
 blockquote h1 {
-  min-width: 20rem;
   font-size: 2rem;
   font-weight: 700;
 }
@@ -126,7 +125,6 @@ button:hover {
   }
 
   blockquote h1 {
-    margin: auto;
     font-size: 1rem;
     padding: 1.5rem 1.5rem;
     min-width: 3rem;
