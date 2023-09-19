@@ -3,7 +3,9 @@
 :root {
   --primary: #014f86;
   --secondary: #61a5c2;
-  --dark: #131a26;
+  --dark-primary: #131a26;
+  --dark-secondary: #192c4d;
+
   --light: #eee;
   --grey: #888;
 
@@ -19,7 +21,7 @@
 }
 
 body {
-  background-color: var(--light);
+  background-color: var(--dark-secondary);
   position: relative;
 }
 
@@ -40,7 +42,7 @@ blockquote {
   margin: auto;
   font-family: var(--font-quote);
   width: 70%;
-  background-color: var(--dark);
+  background-color: var(--dark-primary);
   padding: 2rem;
   border-radius: 1.5rem;
   color: var(--light);
@@ -73,7 +75,7 @@ blockquote p {
   appearance: none;
   border: none;
   outline: none;
-  background-color: var(--secondary);
+  background-color: var(--primary);
   font-weight: 400;
   transform: translate(25%, 50%);
   transition: 0.4s;
@@ -112,10 +114,6 @@ blockquote p {
 
 button:hover {
   background-color: var(--secondary);
-}
-
-.categoryButton:hover {
-  background-color: var(--primary);
 }
 
 @media (max-width: 768px) {
