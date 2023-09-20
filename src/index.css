@@ -112,6 +112,14 @@ blockquote p {
   cursor: pointer;
 }
 
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 button:hover {
   background-color: var(--secondary);
 }
