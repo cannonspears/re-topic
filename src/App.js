@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import validCategories from "./utils/validCategories";
 import { Topic, CategoryButton, NewTopicButton } from "./components";
 
-const API_URL = "https://redotopics.onrender.com/";
+const API_URL = "https://redotopics-api.onrender.com/";
 
 const DEFAULT_LOADING_TEXT = "Loading Topic";
 
