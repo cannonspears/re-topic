@@ -11,4 +11,8 @@ module.exports = [
     name: "Productivity",
     endpoint: "productivity",
   },
+  {
+    name: "Sales Tips",
+    endpoint: "sales",
+  },
 ];
