@@ -152,6 +152,7 @@ button:hover {
   blockquote h1 {
     font-size: 1rem;
     padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+    margin-bottom: 1rem;
     min-width: 3rem;
   }
 
