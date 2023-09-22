@@ -6,8 +6,8 @@
   --dark-primary: #131a26;
   --dark-secondary: #192c4d;
 
-  --light: #eee;
-  --grey: #888;
+  --light: #ffffff;
+  --grey: #d0d0d0;
 
   --font: "Montserrat", sans-serif;
   --font-quote: "Montserrat", monospace;
@@ -52,10 +52,17 @@ blockquote h1 {
   font-size: 2rem;
   font-weight: 700;
 }
+blockquote h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  padding-top: 1.5rem;
+  font-style: italic;
+  color: var(--grey);
+}
 
 blockquote p {
   font-size: 1.2rem;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
 }
 
 .categoryButton,
@@ -132,8 +139,13 @@ button:hover {
 
   blockquote h1 {
     font-size: 1rem;
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem 1.5rem 0.5rem 1.5rem;
     min-width: 3rem;
+  }
+
+  blockquote h2 {
+    font-size: 0.6rem;
+    padding: 0.3rem 1.5rem;
   }
 
   blockquote p {
