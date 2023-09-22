@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import validCategories from "./utils/validCategories";
-import { Topic, CategoryButton, NewTopicButton } from "./components";
+import { Topic, CategoryButton, SearchButton, NewTopicButton } from "./components";
 
 const API_URL = "https://retopic-api.onrender.com/";
 
@@ -78,6 +78,7 @@ function App() {
     <div className="App">
       <div className="topic">
         <CategoryButton onClick={nextCategoryHandler} title={category.name} />
+        <SearchButton />
         <Topic topic={topic} script={script} />
       </div>
       <NewTopicButton onClick={randomTopicHandler} />

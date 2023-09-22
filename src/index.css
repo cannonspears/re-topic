@@ -59,6 +59,7 @@ blockquote p {
 }
 
 .categoryButton,
+.searchButton,
 .scriptButton {
   padding: 0.75rem 1.5rem;
   color: var(--light);
@@ -82,6 +83,18 @@ blockquote p {
   cursor: pointer;
 }
 
+.searchButton {
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: var(--primary);
+  font-weight: 400;
+  transform: translate(50%, 50%);
+  transition: 0.4s;
+  cursor: pointer;
+  float: right;
+}
+
 .scriptButton {
   appearance: none;
   border: none;
@@ -94,7 +107,6 @@ blockquote p {
   bottom: 0;
   transition: 0.4s;
   cursor: pointer;
-  justify-content: right;
 }
 
 .NewTopicButton {
@@ -145,12 +157,17 @@ button:hover {
   }
 
   .categoryButton,
+  .searchButton,
   .scriptButton {
     font-size: 1rem;
     max-width: 80%;
   }
 
   .categoryButton {
+    transform: translate(0%, 50%);
+  }
+
+  .searchButton {
     transform: translate(0%, 50%);
   }
 
