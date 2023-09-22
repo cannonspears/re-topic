@@ -5,8 +5,11 @@ function Script({ script }) {
 
   return (
     <React.Fragment>
+      <h2>Hook</h2>
       <p>{script.hook}</p>
+      <h2>Body</h2>
       {lines}
+      <h2>Call to Action</h2>
       <p>{script.cta}</p>
     </React.Fragment>
   );
