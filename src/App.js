@@ -4,7 +4,7 @@ import { Topic, CategoryButton, NewTopicButton } from "./components";
 
 const API_URL = "https://retopic-api.onrender.com/";
 
-const DEFAULT_LOADING_TEXT = "Loading Topic";
+const DEFAULT_LOADING_TEXT = "Loading Topic...";
 
 function App() {
   const [state, setState] = useState({
