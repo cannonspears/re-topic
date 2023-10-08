@@ -8,13 +8,14 @@ const DEFAULT_LOADING_TEXT = "Loading Topic";
 
 function App() {
   const [state, setState] = useState({
+    id: 0,
     topic: DEFAULT_LOADING_TEXT,
     script: "",
     categoryInd: 0,
     topicList: [],
   });
 
-  const { topic, script, categoryInd, topicList } = state;
+  const { id, topic, script, categoryInd, topicList } = state;
 
   const fetchCategory = async () => {
     try {
@@ -38,6 +39,7 @@ function App() {
       setState((prevState) => ({
         ...prevState,
         topicList: data,
+        id: currentTopic.id,
         topic: currentTopic.topic,
         script: currentTopic.script,
       }));
@@ -66,6 +68,7 @@ function App() {
       const currentTopic = topicList[Math.floor(Math.random() * topicList.length)];
       setState((prevState) => ({
         ...prevState,
+        id: currentTopic.id,
         topic: currentTopic.topic,
         script: currentTopic.script,
       }));
@@ -78,10 +81,11 @@ function App() {
     <div className="App">
       <div className="topic">
         <CategoryButton onClick={nextCategoryHandler} title={category.name} />
-        <SearchButton />
         <Topic topic={topic} script={script} />
+        <div className="topicId">Topic {id}</div>
       </div>
       <NewTopicButton onClick={randomTopicHandler} />
+      <SearchButton />
     </div>
   );
 }
