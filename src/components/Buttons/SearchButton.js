@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import { IconContext } from "react-icons";
-// import { HiSearch } from "react-icons/hi";
+import { IconContext } from "react-icons";
+import { HiSearch } from "react-icons/hi";
 
 function SearchButton({ onSearch }) {
   const [searchId, setSearchId] = useState("");
@@ -18,12 +18,12 @@ function SearchButton({ onSearch }) {
         value={searchId}
         onChange={(e) => setSearchId(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch}>
+        <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
+          <HiSearch />
+        </IconContext.Provider>
+      </button>
       {searchResult && <p>{searchResult}</p>}
-
-      {/* <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
-        <HiSearch />
-      </IconContext.Provider> */}
     </div>
   );
 }

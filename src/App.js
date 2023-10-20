@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import validCategories from "./utils/validCategories";
-import { CategoryButton, Topic, NewTopicButton, SearchButton } from "./components";
+import { CategoryButton, Topic, RandomTopicButton, SearchButton } from "./components";
 
 const API_URL = "https://retopic-api.onrender.com/";
 
@@ -12,6 +12,8 @@ function App() {
     topic: "Loading Topic",
     script: "",
   });
+
+  let currentCategory = validCategories[categoryIndex];
 
   const fetchCategoryData = useCallback(async () => {
     try {
@@ -69,9 +71,12 @@ function App() {
 
   return (
     <div className="App">
-      <CategoryButton onClick={nextCategoryHandler} title={validCategories[categoryIndex].name} />
+      <div>
+        <p>{currentCategory.name}</p>
+        <CategoryButton onClick={nextCategoryHandler} title={validCategories[categoryIndex].name} />
+      </div>
       <Topic currentTopic={currentTopic} />
-      <NewTopicButton onClick={randomTopicHandler} />
+      <RandomTopicButton onClick={randomTopicHandler} />
       <SearchButton onSearch={searchById} />
     </div>
   );
