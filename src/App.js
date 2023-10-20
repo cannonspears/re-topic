@@ -3,14 +3,13 @@ import validCategories from "./utils/validCategories";
 import { CategoryButton, Topic, NewTopicButton, SearchButton } from "./components";
 
 const API_URL = "https://retopic-api.onrender.com/";
-const DEFAULT_LOADING_TEXT = "Loading Topic";
 
 function App() {
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [topics, setTopics] = useState([]);
   const [currentTopic, setCurrentTopic] = useState({
-    id: 0,
-    topic: DEFAULT_LOADING_TEXT,
+    id: "",
+    topic: "Loading Topic",
     script: "",
   });
 
