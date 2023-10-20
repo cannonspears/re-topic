@@ -1,25 +1,22 @@
 import React, { useState, useEffect, useCallback } from "react";
 import validCategories from "./utils/validCategories";
-import { Topic, CategoryButton, SearchButton, NewTopicButton } from "./components";
+import { CategoryButton, Topic, NewTopicButton, SearchButton } from "./components";
 
 const API_URL = "https://retopic-api.onrender.com/";
-
-const DEFAULT_LOADING_TEXT = "Loading Topic...";
+const DEFAULT_LOADING_TEXT = "Loading Topic";
 
 function App() {
-  const [state, setState] = useState({
+  const [categoryIndex, setCategoryIndex] = useState(0);
+  const [topics, setTopics] = useState([]);
+  const [currentTopic, setCurrentTopic] = useState({
     id: 0,
     topic: DEFAULT_LOADING_TEXT,
     script: "",
-    categoryInd: 0,
-    topicList: [],
   });
 
-  const { id, topic, script, categoryInd, topicList } = state;
-
-  const fetchCategory = async () => {
+  const fetchCategoryData = useCallback(async () => {
     try {
-      const response = await fetch(`${API_URL}${validCategories[categoryInd].endpoint}`);
+      const response = await fetch(`${API_URL}${validCategories[categoryIndex].endpoint}`);
 
       if (!response.ok) {
         throw new Error(`Request failed with status: ${response.status}`);
@@ -31,58 +28,42 @@ function App() {
       console.error("Error fetching data:", error);
       return null;
     }
-  };
+  }, [categoryIndex]);
 
   const updateTopicList = (data) => {
     if (data && data.length > 0) {
-      const currentTopic = data[Math.floor(Math.random() * data.length)];
-      setState((prevState) => ({
-        ...prevState,
-        topicList: data,
-        id: currentTopic.id,
-        topic: currentTopic.topic,
-        script: currentTopic.script,
-      }));
+      const randomIndex = Math.floor(Math.random() * data.length);
+      setCurrentTopic(data[randomIndex]);
+      setTopics(data);
     }
   };
 
-  const nextCategoryHandler = useCallback(() => {
-    setState((prevState) => ({
-      ...prevState,
-      categoryInd:
-        prevState.categoryInd !== validCategories.length - 1 ? prevState.categoryInd + 1 : 0,
-    }));
-  }, []);
-
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchCategory();
+      const data = await fetchCategoryData();
       updateTopicList(data);
     };
 
     fetchData();
-  }, [categoryInd]);
+  }, [fetchCategoryData]);
+
+  const nextCategoryHandler = useCallback(() => {
+    setCategoryIndex((prevIndex) => (prevIndex === validCategories.length - 1 ? 0 : prevIndex + 1));
+  }, []);
 
   const randomTopicHandler = () => {
-    if (topicList.length > 0) {
-      const currentTopic = topicList[Math.floor(Math.random() * topicList.length)];
-      setState((prevState) => ({
-        ...prevState,
-        id: currentTopic.id,
-        topic: currentTopic.topic,
-        script: currentTopic.script,
-      }));
+    if (topics.length > 0) {
+      const randomIndex = Math.floor(Math.random() * topics.length);
+      setCurrentTopic(topics[randomIndex]);
     }
   };
-
-  const category = validCategories[categoryInd];
 
   return (
     <div className="App">
       <div className="topic">
-        <CategoryButton onClick={nextCategoryHandler} title={category.name} />
-        <Topic topic={topic} script={script} />
-        <div className="topicId">Topic {id}</div>
+        <CategoryButton onClick={nextCategoryHandler} title={validCategories[categoryIndex].name} />
+        <Topic topic={currentTopic.topic} script={currentTopic.script} />
+        <div className="topicId">Topic {currentTopic.id}</div>
       </div>
       <NewTopicButton onClick={randomTopicHandler} />
       <SearchButton />
