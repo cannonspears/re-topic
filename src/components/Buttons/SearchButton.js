@@ -1,14 +1,30 @@
-import React from "react";
-import { IconContext } from "react-icons";
-import { HiSearch } from "react-icons/hi";
+import React, { useState } from "react";
+// import { IconContext } from "react-icons";
+// import { HiSearch } from "react-icons/hi";
 
-function SearchButton({}) {
+function SearchButton({ onSearch }) {
+  const [searchId, setSearchId] = useState("");
+  const [searchResult, setSearchResult] = useState("");
+
+  const handleSearch = async () => {
+    const result = await onSearch(searchId);
+    setSearchResult(result);
+  };
   return (
-    <button className="searchButton">
-      <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
+    <div className="searchButton">
+      <input
+        type="text"
+        placeholder="Search by ID"
+        value={searchId}
+        onChange={(e) => setSearchId(e.target.value)}
+      />
+      <button onClick={handleSearch}>Search</button>
+      {searchResult && <p>{searchResult}</p>}
+
+      {/* <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
         <HiSearch />
-      </IconContext.Provider>
-    </button>
+      </IconContext.Provider> */}
+    </div>
   );
 }
 
