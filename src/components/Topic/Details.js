@@ -1,6 +1,6 @@
 import React from "react";
 
-function Script({ script }) {
+function Details({ script, id }) {
   const lines = script.body.split("\n").map((newLine, index) => <p key={index}>{newLine}</p>);
 
   return (
@@ -11,8 +11,9 @@ function Script({ script }) {
       {lines}
       {/* <h2>Call to Action</h2> */}
       <p>{script.cta}</p>
+      <div className="topicId">Topic ID {id}</div>
     </React.Fragment>
   );
 }
 
-export default Script;
+export default Details;

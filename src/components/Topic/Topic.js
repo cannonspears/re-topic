@@ -1,24 +1,30 @@
 import React, { useState } from "react";
-import Script from "./Script";
+import Details from "./Details";
 
-function Topic({ topic, script }) {
-  const [showScript, setShowScript] = useState(false);
+function Topic({ currentTopic }) {
+  const [showDetails, setShowDetails] = useState(false);
 
-  const showScriptHandler = () => {
-    setShowScript(!showScript);
+  const { topic, id, script } = currentTopic;
+
+  const showDetailsHandler = () => {
+    setShowDetails(!showDetails);
   };
 
-  let buttonText = showScript ? "Hide" : "Show";
+  let buttonText = showDetails ? "Hide" : "Show";
 
   return (
     <React.Fragment>
       <blockquote>
         <h1>{topic}</h1>
-        {showScript && <Script script={script} />}
+        {showDetails && <Details script={script} id={id} />}
       </blockquote>
 
-      <button onClick={showScriptHandler} className="scriptButton" title={`${buttonText} Script`}>
-        {buttonText} Script
+      <button
+        onClick={showDetailsHandler}
+        className="detailsButton"
+        title={`${buttonText} Details`}
+      >
+        {buttonText} Details
       </button>
     </React.Fragment>
   );

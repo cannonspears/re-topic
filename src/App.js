@@ -63,7 +63,6 @@ function App() {
 
     if (topic) {
       setCurrentTopic(topic);
-      return `Topic with ID ${id} found.`;
     } else {
       return `Topic with ID ${id} not found.`;
     }
@@ -72,8 +71,7 @@ function App() {
   return (
     <div className="App">
       <CategoryButton onClick={nextCategoryHandler} title={validCategories[categoryIndex].name} />
-      <Topic topic={currentTopic.topic} script={currentTopic.script} />
-      <div className="topicId">Topic {currentTopic.id}</div>
+      <Topic currentTopic={currentTopic} />
       <NewTopicButton onClick={randomTopicHandler} />
       <SearchButton onSearch={searchById} />
     </div>
