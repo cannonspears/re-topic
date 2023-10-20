@@ -60,11 +60,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className="topic">
-        <CategoryButton onClick={nextCategoryHandler} title={validCategories[categoryIndex].name} />
-        <Topic topic={currentTopic.topic} script={currentTopic.script} />
-        <div className="topicId">Topic {currentTopic.id}</div>
-      </div>
+      <CategoryButton onClick={nextCategoryHandler} title={validCategories[categoryIndex].name} />
+      <Topic topic={currentTopic.topic} script={currentTopic.script} />
+      <div className="topicId">Topic {currentTopic.id}</div>
       <NewTopicButton onClick={randomTopicHandler} />
       <SearchButton />
     </div>
