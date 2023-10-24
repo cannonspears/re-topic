@@ -11,17 +11,16 @@ function SearchButton({ onSearch }) {
     setSearchResult(result);
   };
   return (
-    <div className="searchButton">
+    <div className="row">
       <input
         type="text"
-        placeholder="Search by ID"
+        placeholder="Topic ID"
         value={searchId}
         onChange={(e) => setSearchId(e.target.value)}
+        className="col"
       />
-      <button onClick={handleSearch}>
-        <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
-          <HiSearch />
-        </IconContext.Provider>
+      <button className="btn btn-outline-secondary col col-3" onClick={handleSearch}>
+        Search
       </button>
       {searchResult && <p>{searchResult}</p>}
     </div>
