@@ -81,8 +81,16 @@ function App() {
         currentCategory={currentCategory}
       />
       <Topic currentTopic={currentTopic} />
-      <RandomTopicButton onClick={randomTopicHandler} />
-      <SearchButton onSearch={searchById} />
+      <div className="container text-center">
+        <div className="row">
+          <div className="col">
+            <RandomTopicButton onClick={randomTopicHandler} />
+          </div>
+          <div className="col">
+            <SearchButton onSearch={searchById} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
