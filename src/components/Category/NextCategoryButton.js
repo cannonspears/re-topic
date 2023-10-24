@@ -4,11 +4,8 @@ import { HiArrowRight } from "react-icons/hi";
 
 function NextCategoryButton({ onClick }) {
   return (
-    <button onClick={onClick} className="categoryButton" title="Next Category">
-      Next Category
-      <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
-        <HiArrowRight />
-      </IconContext.Provider>
+    <button onClick={onClick} className="btn btn-outline-secondary btn-sm" title="Next Category">
+      Next
     </button>
   );
 }
