@@ -1,11 +1,12 @@
 import React from "react";
-import { NextCategoryButton } from "../index";
+import { PreviousCategoryButton, NextCategoryButton } from "../index";
 
-function Category({ onClick, currentCategory }) {
+function Category({ previousClick, nextClick, currentCategory }) {
   return (
     <div>
+      <PreviousCategoryButton onClick={previousClick} className="btn-primary" />
       <div>{currentCategory.name}</div>
-      <NextCategoryButton onClick={onClick} />
+      <NextCategoryButton onClick={nextClick} />
     </div>
   );
 }

@@ -52,6 +52,10 @@ function App() {
     setCategoryIndex((prevIndex) => (prevIndex === validCategories.length - 1 ? 0 : prevIndex + 1));
   }, []);
 
+  const previousCategoryHandler = useCallback(() => {
+    setCategoryIndex((prevIndex) => (prevIndex === 0 ? validCategories.length - 1 : prevIndex - 1));
+  }, []);
+
   const randomTopicHandler = () => {
     if (topics.length > 0) {
       const randomIndex = Math.floor(Math.random() * topics.length);
@@ -71,7 +75,11 @@ function App() {
 
   return (
     <div className="App">
-      <Category onClick={nextCategoryHandler} currentCategory={currentCategory} />
+      <Category
+        previousClick={previousCategoryHandler}
+        nextClick={nextCategoryHandler}
+        currentCategory={currentCategory}
+      />
       <Topic currentTopic={currentTopic} />
       <RandomTopicButton onClick={randomTopicHandler} />
       <SearchButton onSearch={searchById} />
