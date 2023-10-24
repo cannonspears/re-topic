@@ -11,17 +11,16 @@ function Topic({ currentTopic }) {
   };
 
   let buttonText = showDetails ? "Hide" : "Show";
+  let buttonColor = showDetails ? "secondary" : "primary";
 
   return (
     <React.Fragment>
-      <blockquote>
-        <h1>{topic}</h1>
-        {showDetails && <Details script={script} id={id} />}
-      </blockquote>
+      <h1>{topic}</h1>
+      {showDetails && <Details script={script} id={id} />}
 
       <button
         onClick={showDetailsHandler}
-        className="detailsButton"
+        className={`btn btn-sm btn-${buttonColor}`}
         title={`${buttonText} Details`}
       >
         {buttonText} Details
