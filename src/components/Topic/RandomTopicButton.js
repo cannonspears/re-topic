@@ -2,7 +2,7 @@ import React from "react";
 
 function RandomTopicButton({ onClick }) {
   return (
-    <button className="randomTopicButton" onClick={onClick}>
+    <button className="btn btn-primary" onClick={onClick}>
       Generate Random Topic
     </button>
   );
