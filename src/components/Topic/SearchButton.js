@@ -11,17 +11,14 @@ function SearchButton({ onSearch }) {
     setSearchResult(result);
   };
   return (
-    <div className="row">
+    <div>
       <input
         type="text"
         placeholder="Topic ID"
         value={searchId}
         onChange={(e) => setSearchId(e.target.value)}
-        className="col"
       />
-      <button className="btn btn-outline-secondary col col-3" onClick={handleSearch}>
-        Search
-      </button>
+      <button onClick={handleSearch}>Search</button>
       {searchResult && <p>{searchResult}</p>}
     </div>
   );

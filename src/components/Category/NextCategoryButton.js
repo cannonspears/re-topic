@@ -4,7 +4,7 @@ import { HiArrowRight } from "react-icons/hi";
 
 function NextCategoryButton({ onClick }) {
   return (
-    <button onClick={onClick} className="btn btn-outline-secondary btn-sm" title="Next Category">
+    <button onClick={onClick} title="Next Category">
       Next
     </button>
   );
