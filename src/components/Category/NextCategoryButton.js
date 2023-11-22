@@ -1,6 +1,4 @@
 import React from "react";
-import { IconContext } from "react-icons";
-import { HiArrowRight } from "react-icons/hi";
 import Button from "@mui/material/Button";
 
 function NextCategoryButton({ onClick }) {

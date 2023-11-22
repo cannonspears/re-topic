@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { IconContext } from "react-icons";
-import { HiSearch } from "react-icons/hi";
 
 function SearchButton({ onSearch }) {
   const [searchId, setSearchId] = useState("");
