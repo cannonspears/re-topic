@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 function SearchButton({ onSearch }) {
   const [searchId, setSearchId] = useState("");
@@ -8,15 +10,16 @@ function SearchButton({ onSearch }) {
     const result = await onSearch(searchId);
     setSearchResult(result);
   };
+
   return (
     <div>
-      <input
+      <TextField
         type="text"
         placeholder="Topic ID"
         value={searchId}
         onChange={(e) => setSearchId(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button>
+      <Button onClick={handleSearch}>Search</Button>
       {searchResult && <p>{searchResult}</p>}
     </div>
   );
