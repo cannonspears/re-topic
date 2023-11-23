@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-function SearchButton({ onSearch }) {
+function SearchTopic({ onSearch }) {
   const [searchId, setSearchId] = useState("");
   const [searchResult, setSearchResult] = useState("");
 
@@ -25,4 +25,4 @@ function SearchButton({ onSearch }) {
   );
 }
 
-export default SearchButton;
+export default SearchTopic;
