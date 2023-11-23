@@ -10,7 +10,7 @@ function App() {
   const [topics, setTopics] = useState([]);
   const [currentTopic, setCurrentTopic] = useState({
     id: "",
-    topic: "Loading Topic",
+    topic: "Loading Topic...",
     script: "",
   });
 
