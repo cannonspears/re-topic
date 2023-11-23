@@ -1,12 +1,16 @@
 import React from "react";
-import { PreviousCategoryButton, NextCategoryButton } from "../index";
+import Button from "@mui/material/Button";
 
 function Category({ previousClick, nextClick, currentCategory }) {
   return (
-    <div className="container text-center">
-      <PreviousCategoryButton onClick={previousClick} />
+    <div>
+      <Button variant="outlined" onClick={previousClick} title="Previous Category">
+        Previous
+      </Button>
       <div>{currentCategory.name}</div>
-      <NextCategoryButton onClick={nextClick} />
+      <Button variant="outlined" onClick={nextClick} title="Next Category">
+        Next
+      </Button>
     </div>
   );
 }
