@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Details from "./Details";
-import Button from "@mui/material/Button";
+import { Button, Typography } from "@mui/material";
 
 function Topic({ currentTopic }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -14,13 +14,13 @@ function Topic({ currentTopic }) {
   let buttonText = showDetails ? "Hide" : "Show";
 
   return (
-    <div>
+    <Typography>
       <h1>{topic}</h1>
       {showDetails && <Details script={script} id={id} />}
       <Button variant="contained" onClick={showDetailsHandler} title={`${buttonText} Details`}>
         {buttonText} Details
       </Button>
-    </div>
+    </Typography>
   );
 }
 
