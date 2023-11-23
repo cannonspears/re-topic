@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import validCategories from "./utils/validCategories";
 import { Category, Topic, RandomTopicButton, SearchTopic } from "./components";
-import Container from "@mui/material/Container";
+import { Container, Stack } from "@mui/material";
 
 const API_URL = "https://retopic-api.onrender.com/";
 
@@ -82,8 +82,10 @@ function App() {
         currentCategory={currentCategory}
       />
       <Topic currentTopic={currentTopic} />
-      <RandomTopicButton onClick={randomTopicHandler} />
-      <SearchTopic onSearch={searchById} />
+      <Stack direction="column" spacing={2} alignItems="center" justifyContent="center" pt={2}>
+        <RandomTopicButton onClick={randomTopicHandler} />
+        <SearchTopic onSearch={searchById} />
+      </Stack>
     </Container>
   );
 }

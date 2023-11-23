@@ -15,11 +15,12 @@ function SearchTopic({ onSearch }) {
     <div>
       <TextField
         type="text"
-        placeholder="Topic ID"
+        placeholder="Search by Topic ID"
         value={searchId}
         onChange={(e) => setSearchId(e.target.value)}
       />
       <Button onClick={handleSearch}>Search</Button>
+
       {searchResult && <p>{searchResult}</p>}
     </div>
   );
