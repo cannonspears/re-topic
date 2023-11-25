@@ -10,6 +10,7 @@ function SearchTopic({ onSearch }) {
 
   return (
     <TextField
+      fullWidth
       id="outlined-basic"
       label="Search by Topic ID"
       variant="outlined"
