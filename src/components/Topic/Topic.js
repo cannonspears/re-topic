@@ -16,7 +16,7 @@ function Topic({ currentTopic }) {
 
   return (
     <div>
-      <Typography>
+      <Typography sx={{ fontSize: { xs: ".7rem" } }}>
         <h1>{topic}</h1>
         {showDetails && <Details script={script} id={id} />}
       </Typography>

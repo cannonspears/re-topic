@@ -10,7 +10,7 @@ function Details({ script, id }) {
   }
 
   return (
-    <Typography textAlign="left" pb={2}>
+    <Typography textAlign="left" pb={2} sx={{ fontSize: { xs: ".9rem" } }}>
       {script ? (
         <div>
           <p>{script.hook}</p>
