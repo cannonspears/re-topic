@@ -13,10 +13,13 @@ function SearchTopic({ onSearch }) {
 
   return (
     <div>
-      <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" pt={2}>
+      <Stack direction="row" spacing={2} alignItems="center" justifyContent="center">
         <TextField
+          id="outlined-basic"
+          label="Search by Topic ID"
+          variant="outlined"
           type="text"
-          placeholder="Search by Topic ID"
+          size="small"
           value={searchId}
           onChange={(e) => setSearchId(e.target.value)}
         />

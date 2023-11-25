@@ -83,7 +83,7 @@ function App() {
           currentCategory={currentCategory}
         />
         <Topic currentTopic={currentTopic} />
-        <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" pt={2}>
+        <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" pt={4}>
           <RandomTopicButton onClick={randomTopicHandler} />
           <SearchTopic onSearch={searchById} />
         </Stack>
