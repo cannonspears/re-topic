@@ -12,12 +12,17 @@ function Topic({ currentTopic }) {
   };
 
   let buttonText = showDetails ? "Hide" : "Show";
+  let clickableButton = script ? "contained" : "disabled";
 
   return (
     <Typography>
       <h1>{topic}</h1>
       {showDetails && <Details script={script} id={id} />}
-      <Button variant="contained" onClick={showDetailsHandler} title={`${buttonText} Details`}>
+      <Button
+        variant={clickableButton}
+        onClick={showDetailsHandler}
+        title={`${buttonText} Details`}
+      >
         {buttonText} Details
       </Button>
     </Typography>
