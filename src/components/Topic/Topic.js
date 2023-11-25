@@ -15,17 +15,20 @@ function Topic({ currentTopic }) {
   let clickableButton = script ? "contained" : "disabled";
 
   return (
-    <Typography>
-      <h1>{topic}</h1>
-      {showDetails && <Details script={script} id={id} />}
+    <div>
+      <Typography>
+        <h1>{topic}</h1>
+        {showDetails && <Details script={script} id={id} />}
+      </Typography>
       <Button
         variant={clickableButton}
         onClick={showDetailsHandler}
         title={`${buttonText} Details`}
+        textAlign="center"
       >
         {buttonText} Details
       </Button>
-    </Typography>
+    </div>
   );
 }
 

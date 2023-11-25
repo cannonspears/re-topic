@@ -6,11 +6,11 @@ function Details({ script, id }) {
   if (script) {
     lines = script.body.split("\n").map((newLine, index) => <p key={index}>{newLine}</p>);
   } else {
-    lines = "No script available. Please search again.";
+    lines = "";
   }
 
   return (
-    <Typography px={12} pb={2}>
+    <Typography textAlign="left" pb={2}>
       {script ? (
         <div>
           <p>{script.hook}</p>

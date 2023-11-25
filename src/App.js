@@ -75,7 +75,7 @@ function App() {
   };
 
   return (
-    <Container>
+    <Container maxWidth="sm">
       <Box alignItems="center" justifyContent="center" textAlign="center">
         <Category
           previousClick={previousCategoryHandler}
