@@ -70,6 +70,7 @@ function App() {
     if (topic) {
       setCurrentTopic(topic);
     } else {
+      // setCurrentTopic({ topic: "Not Found" });
       return `Topic with ID ${id} not found.`;
     }
   };

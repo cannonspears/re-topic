@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import { TextField, Stack } from "@mui/material";
 
 function SearchTopic({ onSearch }) {
   const [searchId, setSearchId] = useState("");
@@ -13,15 +13,16 @@ function SearchTopic({ onSearch }) {
 
   return (
     <div>
-      <TextField
-        type="text"
-        placeholder="Search by Topic ID"
-        value={searchId}
-        onChange={(e) => setSearchId(e.target.value)}
-      />
-      <Button onClick={handleSearch}>Search</Button>
-
-      {searchResult && <p>{searchResult}</p>}
+      <Stack direction="row" spacing={2} alignItems="center" justifyContent="center" pt={2}>
+        <TextField
+          type="text"
+          placeholder="Search by Topic ID"
+          value={searchId}
+          onChange={(e) => setSearchId(e.target.value)}
+        />
+        <Button onClick={handleSearch}>Search</Button>
+      </Stack>
+      {/* {searchResult && <p>{searchResult}</p>} */}
     </div>
   );
 }
